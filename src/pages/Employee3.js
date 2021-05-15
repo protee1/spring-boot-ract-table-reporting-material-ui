@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import EmployeeService from '../services/EmployeeService';
 import { useTable, useGlobalFilter, useFilters, useSortBy, usePagination, useColumnOrder } from 'react-table';
-import { Add, ArrowDownwardOutlined, ArrowUpwardOutlined,  PeopleOutlineTwoTone } from '@material-ui/icons';
+import { Add, PeopleOutlineTwoTone, SortOutlined } from '@material-ui/icons';
 import {  Button, Grid,  makeStyles, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar } from '@material-ui/core';
 import GlobalFilter from '../Components/GlobalFilter';
 import axios from 'axios';
@@ -172,32 +172,18 @@ props.history.push("/employees/"+id)
                             
 
                                 <Grid item>
-                                    <Controls.Button 
-                                     style={{marginRight:'16px'}}variant="contained" color="primary" 
-                                     onClick={getPdf} 
-                                     text="Generate PDF"
-                                     ></Controls.Button>
+                                    <Button  style={{marginRight:'16px'}}variant="contained" color="primary" onClick={getPdf} >Generate PDF</Button>
                                 </Grid>
                                 <Grid item>
-                                    <Controls.Button variant="contained" color="primary" type="button"
-                                     onClick={viewPdf}
-                                     text="View PDF"
-                                     ></Controls.Button>
+                                    <Button variant="contained" color="primary" type="button" onClick={viewPdf} >View PDF</Button>
                                 </Grid>
                                 <Grid item sm={true} />
 
                                 <Grid item>
-                                    <Controls.Button 
-                                    variant="contained" color="primary" type="button" 
-                                    onClick={getDocx} 
-                                    text="GENERATE DOCX"
-                                    ></Controls.Button>
+                                    <Button variant="contained" color="primary" type="button" onClick={getDocx}  >GEBERATE DOCX</Button>
                                 </Grid>
                                 <Grid item >
-                                    <Controls.Button 
-                                    style={{marginLeft:'16px'}} variant="contained" color="primary" type="button" onClick={getXls} 
-                                    text="GENERATE EXCELL"
-                                    ></Controls.Button>
+                                    <Button style={{marginLeft:'16px'}} variant="contained" color="primary" type="button" onClick={getXls}  >GENERATE EXCELL</Button>
                                 </Grid>
                             </Grid>
                        
@@ -234,7 +220,7 @@ props.history.push("/employees/"+id)
                                             column.getSortByToggleProps())} >
                                         {column.render("Header")}
                                         <span>
-                                            {column.isSorted ? (column.isSortedDesc ? <ArrowUpwardOutlined /> : <ArrowDownwardOutlined />) : ''}
+                                            {column.isSorted ? (column.isSortedDesc ? <SortOutlined /> : <SortOutlined />) : ''}
                                         </span>
                                     </TableCell>
 
@@ -288,16 +274,9 @@ props.history.push("/employees/"+id)
                     ))}
                 </select>
                 <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</Button>
-                <Button 
-                onClick={() => previousPage()} 
-                disabled={!canPreviousPage}
-                >Previous</Button>
-                <Button className="m-3" onClick={() => nextPage()} 
-                disabled={!canNextPage}
-               
-                >Next</Button>
-                <Button
-                onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</Button>
+                <Button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</Button>
+                <Button className="m-3" onClick={() => nextPage()} disabled={!canNextPage}>Next</Button>
+                <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</Button>
             </div>
 
 

@@ -5,6 +5,8 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Nav from './Components/Nav';
 import EmployeeList from './pages/EmployeeList';
+import AddEmployee from './pages/AddEmployee';
+
 function App() {
   return (
    
@@ -15,6 +17,8 @@ function App() {
 <div className="container mt-2">
    <Switch>
       <Route exact path="/employees" component={EmployeeList}/>
+      <Route exact path="/newEmployee" component={AddEmployee}/>
+
     </Switch>
     </div>
    </BrowserRouter>
